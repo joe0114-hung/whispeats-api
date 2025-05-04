@@ -1,4 +1,5 @@
 // server.js
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
@@ -10,10 +11,11 @@ app.use(bodyParser.json());
 
 // MySQL 資料庫連線設定（修改為你實際帳密）
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '', // 若有密碼請填上
-  database: 'whispeats'
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 });
 
 // 測試用首頁
