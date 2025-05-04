@@ -1,5 +1,6 @@
 // server.js
 require('dotenv').config();
+console.log("📦 資料庫連線資訊：", process.env.DB_HOST, process.env.DB_PORT);
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
